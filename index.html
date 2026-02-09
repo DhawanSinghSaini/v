@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Valentine</title>    
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Delius+Swash+Caps&family=Hedvig+Letters+Serif:opsz@12..24&display=swap" rel="stylesheet">
+        <style>
+            body{
+                display: flex;
+                flex-direction: column;
+                width: 100vw;
+                height: 100vh;
+                justify-content: center;
+                align-items: center;
+                background-color: #fe7f9c;
+                font-family: "Delius Swash Caps", cursive;
+                font-weight: 400;
+                font-style: normal;
+            }
+            .pageCentered{
+                display: flex;
+                flex-direction: column;
+                width: 60vw;
+                height: fit-content;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                background-color: white;
+                border-radius: 15px;
+            }
+            img{
+                width: 200px;
+                margin: 20px;
+            }
+            button{
+                width: 80px;
+                height: 40px;
+                border-radius: 50px;
+                border: none;
+                background-color: #fe7f9c;
+                font-family: "Delius Swash Caps", cursive;
+                font-weight: 800;
+                font-style: normal;
+                color: white;
+                margin: 50px;
+            }
+            #noButton {
+                transition: all 0.5s ease; /* smooth movement */
+            }
+            #yesButton {
+                transition: all 0.3s ease;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="pageCentered">
+            <div>
+                <img src="./image.png">
+            </div>
+            <h1 id="heading">Rahul will you be my valentine?</h1>
+            <div >
+                <button id="yesButton" onclick="yes()">Yes</button>
+                <button id="noButton" style="background-color: rgb(240, 234, 234);color: #fe7f9c;">No 🤨</button>
+            </div>
+        </div>
+    
+</style>
+
+<script>
+    const noButton = document.getElementById("noButton");
+    const yesButton = document.getElementById("yesButton");
+
+    noButton.addEventListener("mouseover", () => {
+        // Get viewport dimensions
+        const viewportWidth = window.innerWidth;
+        const viewportHeight = window.innerHeight;
+
+        // Random new position within viewport
+        const newX = Math.random() * (viewportWidth - noButton.offsetWidth);
+        const newY = Math.random() * (viewportHeight - noButton.offsetHeight);
+
+        // Apply new position with smooth transition
+        noButton.style.position = "absolute";
+        noButton.style.left = newX + "px";
+        noButton.style.top = newY + "px";
+
+        yesButton.style.height = (yesButton.offsetHeight + 10) + "px"; 
+        yesButton.style.width = (yesButton.offsetWidth + 10) + "px"; 
+    });
+
+    function yes(){
+        document.getElementById("heading").innerHTML="Yes Hehehehe";
+        yesButton.style.visibility = "hidden";
+        noButton.style.visibility = "hidden";
+        yesButton.style.height = "0px";
+        yesButton.style.width = "0px";
+        noButton.style.height = "0px";
+        noButton.style.width = "0px";
+    }
+</script>
+
+    </body>
+</html>
