@@ -89,6 +89,24 @@
         yesButton.style.width = (yesButton.offsetWidth + 10) + "px"; 
     });
 
+    noButton.addEventListener("onclick", () => {
+        // Get viewport dimensions
+        const viewportWidth = window.innerWidth;
+        const viewportHeight = window.innerHeight;
+
+        // Random new position within viewport
+        const newX = Math.random() * (viewportWidth - noButton.offsetWidth);
+        const newY = Math.random() * (viewportHeight - noButton.offsetHeight);
+
+        // Apply new position with smooth transition
+        noButton.style.position = "absolute";
+        noButton.style.left = newX + "px";
+        noButton.style.top = newY + "px";
+
+        yesButton.style.height = (yesButton.offsetHeight + 10) + "px"; 
+        yesButton.style.width = (yesButton.offsetWidth + 10) + "px"; 
+    });
+
     function yes(){
         document.getElementById("heading").innerHTML="Yes Hehehehe";
         yesButton.style.visibility = "hidden";
@@ -101,4 +119,5 @@
 </script>
 
     </body>
+
 </html>
